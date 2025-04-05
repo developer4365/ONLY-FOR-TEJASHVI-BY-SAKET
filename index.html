@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Tejashvi ❤️</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: url('https://images.unsplash.com/photo-1518199266791-5375a83190b7') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .font-pacifico {
+            font-family: 'Pacifico', cursive;
+        }
+        .heart {
+            position: absolute;
+            pointer-events: none;
+            animation: float 4s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-4">
+    <div id="proposal" class="max-w-md mx-auto bg-white/90 backdrop-blur-sm rounded-xl shadow-xl overflow-hidden p-8 text-center">
+        <h1 class="text-4xl font-pacifico text-pink-600 mb-6">From Saket to Tejashvi ❤️</h1>
+        <div class="text-2xl font-pacifico text-red-500 mb-8">
+            <p>My Dearest Tejashvi,</p>
+            <p class="mt-2">From the moment I met you,</p>
+            <p class="mt-2">I knew you were the one</p>
+            <p class="mt-4">Every moment with you is magical</p>
+            <p class="mt-4">Will you make me the happiest person...</p>
+            <p class="mt-6 text-3xl">And be mine forever?</p>
+        </div>
+        <div class="flex justify-center space-x-4">
+            <button id="yesBtn" class="px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-bold rounded-full transition-all transform hover:scale-105">
+                <i class="fas fa-heart mr-2"></i> Yes!
+            </button>
+            <button id="noBtn" class="px-6 py-3 bg-red-500 hover:bg-red-600 text-white font-bold rounded-full transition-all">
+                <i class="fas fa-times mr-2"></i> No
+            </button>
+        </div>
+    </div>
+
+    <div id="yesResponse" class="max-w-md mx-auto bg-white/90 backdrop-blur-sm rounded-xl shadow-xl overflow-hidden p-8 text-center hidden">
+        <h1 class="text-4xl font-pacifico text-pink-600 mb-6">Tejashvi Said Yes to Saket! 🎉</h1>
+        <div class="text-2xl font-pacifico text-red-500 mb-8">
+            <p>Saket and Tejashvi - Forever Together!</p>
+            <p class="mt-4">I promise to love you forever</p>
+            <p class="mt-4">❤️❤️❤️</p>
+        </div>
+        <div class="flex justify-center">
+            <button onclick="location.reload()" class="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-full">
+                <i class="fas fa-redo mr-2"></i> Relive the moment
+            </button>
+        </div>
+    </div>
+
+    <div id="noResponse" class="max-w-md mx-auto bg-white/90 backdrop-blur-sm rounded-xl shadow-xl overflow-hidden p-8 text-center hidden">
+        <h1 class="text-4xl font-pacifico text-pink-600 mb-6">I'll Keep Trying ❤️</h1>
+        <div class="text-2xl font-pacifico text-red-500 mb-8">
+            <p>My love for you is endless</p>
+            <p class="mt-4">I'll ask you again tomorrow</p>
+            <p class="mt-4">And every day after that</p>
+        </div>
+        <div class="flex justify-center">
+            <button onclick="location.reload()" class="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-full">
+                <i class="fas fa-redo mr-2"></i> Try Again
+            </button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('yesBtn').addEventListener('click', function() {
+            document.getElementById('proposal').classList.add('hidden');
+            document.getElementById('yesResponse').classList.remove('hidden');
+            createHeartRain();
+        });
+
+        document.getElementById('noBtn').addEventListener('click', function() {
+            document.getElementById('proposal').classList.add('hidden');
+            document.getElementById('noResponse').classList.remove('hidden');
+            document.getElementById('yesResponse').classList.add('hidden');
+        });
+
+        function createHeartRain() {
+            const container = document.body;
+            const heartCount = 50;
+            
+            for (let i = 0; i < heartCount; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.innerHTML = '❤️';
+                    heart.className = 'heart';
+                    heart.style.left = Math.random() * 100 + 'vw';
+                    heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                    heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                    container.appendChild(heart);
+                    
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 4000);
+                }, i * 100);
+            }
+        }
+    </script>
+</body>
+</html>
